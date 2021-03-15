@@ -1,0 +1,28 @@
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
+
+public class mains extends UserMainCode {
+	public static void main(String[] args) throws ParseException {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("enter date");
+		String text = scan.nextLine();
+		ValidateDOB(text);
+	}
+}
+class UserMainCode {
+	static boolean ValidateDOB(String text) throws ParseException {
+		boolean result;
+		SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+		try {
+			Date d = format.parse(text);
+			result = true;
+			System.out.println("TRUE");
+		} catch (Exception e) {
+			result = false;
+			System.out.println("FALSE");
+		}
+		return result;
+	}
+}
